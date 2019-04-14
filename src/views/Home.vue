@@ -21,17 +21,92 @@
         <div class="right"></div>
       </div>
     </div>
-    <div v-if="click == 2" class="cover">
-      testing
+    <div v-show="click == 2" class="cover">
+      <div v-animate.fade="'slide-up'" class="block flex__center">
+        <p>Working on creating a better future in communication to establish better relationships with those you're around in an innovative manner of the future.</p>
+      </div>
+      <div v-animate.fade="'slide-up'" class="block flex">
+        <div class="left">
+          <h2>It's Easy</h2>
+        </div>
+        <div class="right">
+          <img src="@/assets/mobile_01.png" alt="" class="mobile-img">
+        </div>
+      </div>
+      <div v-animate.fade="'slide-up'" class="block flex">
+        <div class="left">
+          <h2>To Begin Chatting</h2>
+        </div>
+        <div class="right right_short">
+          <img src="" alt="" class="mobile-img">
+        </div>
+      </div>
+      <div v-animate.fade="'slide-up'" class="block flex">
+        <div class="left">
+          <h2>Hook Up with Pokemon GO</h2>
+        </div>
+        <div class="right">
+          <img src="@/assets/mobile_01.png" alt="" class="mobile-img">
+        </div>
+      </div>
+      <div v-animate.fade="'slide-up'" class="block flex__center">
+        <h2>Download the Free APK Below</h2>
+        <a href="#">Download</a>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+
+.mobile-img {
+  -webkit-user-drag: none;
+  width: 80%;
+}
+
+.block {
+  padding: 2rem;
+  margin: 0 auto;
+  width: 80%;
+  height: 100vh;
+
+  & h2 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex__center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.block p {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+}
+
 .home {
   height: 100%;
-
 }
+
+.screen {
+  height: inherit;
+  position: relative;
+  width: inherit;
+}
+
 .container {
   position: absolute;
   top: 80%;
@@ -77,6 +152,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  & h2 {
+    font-size: 4rem;
+    letter-spacing: 2px;
+  }
 }
 
 .right {
@@ -91,8 +171,12 @@
 
 .cover {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #ebf0f4;
+}
+
+#elem {
+  opacity: 0;
 }
 
 </style>
@@ -101,6 +185,8 @@
 <script>
 import * as THREE from 'three'
 import {TweenMax, TimelineMax} from 'gsap'
+// Scroll Library
+
 // import { Float32Attribute, PointsMaterial, Points } from 'three';
 
 export default {
@@ -121,20 +207,24 @@ export default {
 
     this.init(positions);
     this.animate();
-    window.addEventListener('click', this.onClick, false);
+    document.getElementById('screen').addEventListener('click', this.onClick, false);
+    
+    var link = document.querySelectorAll('#link');
+    for (let i =0; i < link.length; i ++) {
+      link[i].addEventListener('click', ()=> {
+        this.click = i;
+        this.onClick();
+      });
+    }
+
   },
   methods: {
-    // display() {
-    //   var box = document.querySelector('.box');
-
-    //   if (this.click == 1) {
-    //     box.className += ' '
-    //   }
-    // }
 
     init(positions) {
+
+      var screen = document.querySelector('#screen');
       //
-      this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 8000 );
+      this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
       this.camera.position.set(0,0,3000);
       this.scene = new THREE.Scene();
       this.scene.background = new THREE.Color( 0xebf0f4 );
@@ -166,7 +256,7 @@ export default {
       this.renderer = new THREE.WebGLRenderer();
       this.renderer.setPixelRatio( window.devicePixelRatio );
       this.renderer.setSize( window.innerWidth, window.innerHeight );
-      var screen = document.querySelector('#screen');
+      
       screen.appendChild( this.renderer.domElement );
 
       //

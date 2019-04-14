@@ -7,10 +7,9 @@
       </div>
       <div class="tabs">
         <ul>
-          <li><div class="dot active"></div></li>
-          <li><div class="dot"></div></li>
-          <li><div class="dot"></div></li>
-          <li><div class="dot"></div></li>
+          <li id="link"><div class="dot active"></div></li>
+          <li id="link"><div class="dot"></div></li>
+          <li id="link"><div class="dot"></div></li>
         </ul>
       </div>
       <div class="copyright">2019</div>
@@ -21,21 +20,23 @@
 <style lang="scss">
 
 .nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
+  width: 5vw;
   z-index: 200;
 
   &__box {
     position: relative;
-    width: 5vw;
+    width: inherit;
     height: 100%;
     background: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 0;
   }
 }
 

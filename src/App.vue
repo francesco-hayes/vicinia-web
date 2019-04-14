@@ -1,8 +1,10 @@
 <template>
-  <div id="app">
-    <navi></navi>
-    <router-view/>
-  </div>
+  <main>
+    <div id="app">
+      <navi></navi>
+      <router-view/>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -22,12 +24,9 @@ $dark: #1d2b3b;
 $gray: #ebf0f4;
 $blue: #0c57fb;
 
-body {
+*, *::before, *::after {
   margin: 0;
-}
-
-html {
-  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 #app {
@@ -35,11 +34,26 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $dark;
+  display: flex;
+  width: 100%;
 }
 
 body::-webkit-scrollbar {
   width: 0;
 }
 
+.animate {
+  transition-delay: .5s;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+ 
+.slide-up {
+  opacity: 0;
+}
+ 
+.slide-up.animate-active {
+  opacity: 1;
+}
 
 </style>
