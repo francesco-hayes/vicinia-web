@@ -43,7 +43,7 @@ body::-webkit-scrollbar {
 }
 
 .animate {
-  transition-delay: .5s;
+  transition-delay: .25s;
   transition-duration: 1s;
   transition-timing-function: ease-in;
 }

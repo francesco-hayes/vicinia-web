@@ -21,47 +21,75 @@
         <div class="right"></div>
       </div>
     </div>
-    <div v-show="click == 2" class="cover">
+    <div class="cover">
       <div v-animate.fade="'slide-up'" class="block flex__center">
-        <p>Working on creating a better future in communication to establish better relationships with those you're around in an innovative manner of the future.</p>
+        <p class="big_p">Working on creating a better future in communication to establish better relationships with those you're around in an innovative manner of the future.</p>
       </div>
-      <div v-animate.fade="'slide-up'" class="block flex">
+      <div v-animate.fade="'slide-up'" class="block">
         <div class="left">
           <h2>It's Easy</h2>
         </div>
         <div class="right">
-          <img src="@/assets/mobile_01.png" alt="" class="mobile-img">
+          <img src="@/assets/mobile_01.webp" alt="" class="mobile-img">
         </div>
       </div>
-      <div v-animate.fade="'slide-up'" class="block flex">
+      <div v-animate.fade="'slide-up'" class="block">
         <div class="left">
           <h2>To Begin Chatting</h2>
         </div>
         <div class="right right_short">
-          <img src="" alt="" class="mobile-img">
+          <img src="@/assets/mobile_02.webp" alt="" class="mobile-img">
         </div>
       </div>
-      <div v-animate.fade="'slide-up'" class="block flex">
+      <div v-animate.fade="'slide-up'" class="block">
         <div class="left">
           <h2>Hook Up with Pokemon GO</h2>
         </div>
         <div class="right">
-          <img src="@/assets/mobile_01.png" alt="" class="mobile-img">
+          <img src="@/assets/mobile_01.webp" alt="" class="mobile-img">
         </div>
       </div>
       <div v-animate.fade="'slide-up'" class="block flex__center">
         <h2>Download the Free APK Below</h2>
-        <a href="#">Download</a>
+        <a class="btn" href="#">Download</a>
+        <div class="copy">
+          <p>Hackthon Project | <a class="link" href="#">View Source Code</a></p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+.copy {
+  color: #1d2b3b;
+  text-align: center;
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 150;
+  width: 100%;
+}
+
+.copy p {
+  font-size: 1rem !important;
+}
+
+.link {
+  text-decoration: none;
+  color: #1d2b3b;
+  transition: all .2s ease-in-out;
+}
+
+.link:hover {
+  color: #0c57fb;
+}
 
 .mobile-img {
   -webkit-user-drag: none;
-  width: 80%;
+  width: 75%;
 }
 
 .block {
@@ -69,6 +97,10 @@
   margin: 0 auto;
   width: 80%;
   height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr; 
 
   & h2 {
     font-size: 2.5rem;
@@ -91,7 +123,7 @@
   flex-direction: column;
 }
 
-.block p {
+.big_p {
   font-size: 3rem;
   font-weight: 600;
   letter-spacing: 5px;
@@ -130,12 +162,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: 100;
   opacity: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+  align-items: center;
 
   & h2 {
     font-size: 5rem;
@@ -152,6 +185,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 
   & h2 {
     font-size: 4rem;
@@ -179,6 +213,91 @@
   opacity: 0;
 }
 
+.btn {
+  background: #1d2b3b;
+  padding: 1rem 2rem;
+  color: white;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.3);
+  transition: all .3s ease-in-out;
+}
+
+.btn:hover {
+  background: #0c57fb;
+  box-shadow: none;
+}
+
+@media only screen and (max-width: 40em) {
+  html {
+    font-size: 55%;
+  }
+  .box, .block {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+  }
+  .nav {
+    width: 10vw;
+  }
+
+  .dot {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .logo h2 {
+    font-size: 1rem;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 5vh;;
+    z-index: 200;
+
+    &__box {
+      position: relative;
+      height: inherit;
+      width: inherit;
+      background: white;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem 0 1rem;
+    }
+  }
+  .logo {
+    display: flex;
+    height: 100%;
+    width: 10%;
+    align-items: center;
+  }
+  .logo img {
+    width: 100%;
+    height: 100%;
+  }
+  .tabs ul {
+    display: flex;
+  }
+
+  .tabs li:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+  .card p {
+    font-size: 2rem;
+  }
+  .big_p {
+    text-align: left;
+  }
+}
+
 </style>
 
 
@@ -200,6 +319,7 @@ export default {
       particles: 5000,
       r: 1000,
       click: 0,
+      isAnimating: false,
     }
   },
   mounted () {
@@ -208,17 +328,14 @@ export default {
     this.init(positions);
     this.animate();
     document.getElementById('screen').addEventListener('click', this.onClick, false);
-    
-    var link = document.querySelectorAll('#link');
-    for (let i =0; i < link.length; i ++) {
-      link[i].addEventListener('click', ()=> {
-        this.click = i;
-        this.onClick();
-      });
-    }
 
   },
   methods: {
+    display() {
+      if (this.click > 1) {
+        document.querySelector('#box_00').style.display = 'none';
+      }
+    },
 
     init(positions) {
 
@@ -283,7 +400,7 @@ export default {
     },
 
     onClick(event){
-      //event.preventDefault();
+      event.preventDefault();
 
       var tm = TweenMax;
       var tl = new TimelineMax();
@@ -291,40 +408,30 @@ export default {
       var cover = document.querySelector('#box_00');
       var cover_01 = document.querySelector('#box_01');
 
-      if (this.click == 4) {
-        this.click = 0;
-      }
-
       switch(this.click) {
         case 0:
-          tl.to(this.camera.position, 1.5, {z: 5000, ease: Power2.easeOut}).to(this.camera.position, 1.5, {z: -5000, ease: Power2.easeOut}).to(cover, 1, {opacity: 1});
+          tl.to(this.camera.position, 1.5, {z: 5000, ease: Power2.easeOut}).to(this.camera.position, 1.5, {z: -5000, ease: Power2.easeOut}).to(cover, 1, {opacity: 1, });
           dot[0].classList.remove('active');
           dot[1].className += ' active';
-          this.click++;
           break;
         case 1: 
-          tl.to(cover, 1, {opacity: 0}).to(this.camera.rotation, 1.5, {y: 4, ease: Power2.easeOut}).to(cover_01, 1, {opacity: 1});
+          tl.to(cover, 1, {opacity: 0}).to(this.camera.rotation, 1.5, {y: 4, ease: Power2.easeOut}).to(cover_01, 1, {opacity: 1, });
           dot[1].classList.remove('active');
           dot[2].className += ' active';
-          this.click++;
-          break;
-        case 2:
-          dot[2].classList.remove('active');
-          dot[3].className += ' active';
-          this.click++;
-          break;
-        case 3:
-          dot[0].className += ' active';
-          dot[3].classList.remove('active');
-          this.click++;
-          break;
-        default:
-          dot[0].className += ' active';
-          dot[3].classList.remove('active');
-          this.click++;
+          // this.click++;
           break;
       }
+      this.click++;
 
+      if(this.click > 2) {
+        this.click = 0;
+        tl.to(cover_01, 1, {opacity: 0}).to(this.camera.position, 1.5, {z: 3000, ease: Power2.easeOut}).to(this.camera.rotation, 1, {y:0, ease: Power2.easeOut});
+        dot[0].className += ' active';
+        dot[2].classList.remove('active');
+      }
+
+      this.display();
+        
     }
   }
 }
