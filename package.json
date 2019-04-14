@@ -11,6 +11,7 @@
     "gsap": "^2.1.2",
     "register-service-worker": "^1.6.2",
     "three": "^0.103.0",
+    "three-gpu-particle-system": "^1.0.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1"
   },
