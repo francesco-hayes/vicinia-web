@@ -46,7 +46,15 @@
           <h2>Hook Up with Pokemon GO</h2>
         </div>
         <div class="right">
-          <img src="@/assets/mobile_01.webp" alt="" class="mobile-img">
+          <img src="@/assets/mobile_04.webp" alt="" class="mobile-img">
+        </div>
+      </div>
+      <div v-animate.fade="'slide-up'" class="block">
+        <div class="left">
+          <h2>And More</h2>
+        </div>
+        <div class="right">
+          <img src="@/assets/mobile_03.webp" alt="" class="mobile-img">
         </div>
       </div>
       <div v-animate.fade="'slide-up'" class="block flex__center">
