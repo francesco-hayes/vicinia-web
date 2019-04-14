@@ -10,7 +10,7 @@
         </div>
         <div class="right">
           <div class="card">
-            <p>Discover the highest form of cummication based upon your geolocation.</p>
+            <p>Latin for vicinity or radius.<br>Discover the highest form of cummication based upon your geolocation.</p>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
         <h2>Download the Free APK Below</h2>
         <a class="btn" rel="noopener" href="https://firebasestorage.googleapis.com/v0/b/vicinia-8c7e5.appspot.com/o/app.apk?alt=media&token=e10047f7-13b1-4cb3-b81a-cfdf3f9a377c">Download</a>
         <div class="copy">
-          <p>Hackthon Project | <a class="link" target="_blank" rel="noopener" href="https://github.com/munkurious/vicinia-app">View Source Code</a></p>
+          <p>Hackathon Project | <a class="link" target="_blank" rel="noopener" href="https://github.com/munkurious/vicinia-app">View Source Code</a></p>
         </div>
       </div>
     </div>
