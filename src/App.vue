@@ -29,6 +29,10 @@ $blue: #0c57fb;
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 #app {
   font-family: 'Avenir', sans-serif;
   -webkit-font-smoothing: antialiased;
