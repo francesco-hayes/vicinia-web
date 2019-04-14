@@ -61,7 +61,7 @@
         <h2>Download the Free APK Below</h2>
         <a class="btn" href="#">Download</a>
         <div class="copy">
-          <p>Hackthon Project | <a class="link" href="#">View Source Code</a></p>
+          <p>Hackthon Project | <a class="link" target="_blank" rel="noopener" href="https://github.com/munkurious/vicinia-app">View Source Code</a></p>
         </div>
       </div>
     </div>
